@@ -1,0 +1,95 @@
+:root {
+  --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --msger-bg: #fff;
+  --border: 2px solid #ddd;
+  --left-msg-bg: #ececec;
+  --right-msg-bg: #4c5664;
+}
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+
+.wraper{
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color:var(--body-bg);
+  background-image: url('/images/tank.jpeg');
+  background-size:cover;
+  background-position: center;
+}
+header{
+  display: flex;
+  min-height: 40px;
+  width:100vw;
+  background-color:rgb(240, 245, 245);
+  color: rgb(12, 3, 3);
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+header>h2{
+  display:flex;
+  flex-grow: 1;
+  margin-left: 13px;
+  color: rgb(10, 10, 10);
+}
+nav{
+  flex: 1;
+  flex-grow: 1;
+}
+
+nav>div{
+  display: flex;
+  align-content:space-between;
+}
+
+.navlink{
+  min-width: 200px;
+  display: grid;
+  grid-gap: 10px;
+  text-decoration:none;
+  margin-right: 0px;
+  grid-template-areas:
+  "h s l a"
+}
+.navlink>div{
+  justify-content: center;
+  align-items: center;
+}
+.navlink>div>a{
+  text-decoration: none;
+}
+
+.home{
+  grid-area: h;
+}
+.signup{
+  grid-area: s;
+}
+.login{
+  grid-area: l;
+}
+.about{
+  grid-area: a;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 350px;
+  justify-content: center;
+  align-items: center;
+}
+.title>p{
+  color:white;
+  font-size:30px;
+}

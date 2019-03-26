@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+      <h2><a href="./index.html">GO TO HOME</a></h2>
+      <div class="container">
+          <div class="logo">Aquarium SignUp</div>
+          <div class="login-item">
+            <form id="form" class="form form-login">
+              <div class="form-field">
+                <label class="user" for="signup-username"
+                  ><span class="hidden">Username</span></label>
+                <input
+                  id="signup-username"
+                  type="email"  
+                  class="form-input"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+    
+              <div class="form-field">
+                <label class="lock" for="signup-password"
+                  ><span class="hidden">Password</span></label
+                >
+                <input
+                  id="signup-password"
+                  type="password"
+                  class="form-input"
+                  placeholder="Password"
+                  required
+                  
+                />
+              </div>
+              <div class="form-field"><input type="submit" value="signup" /></div>
+             
+            </form>
+          </div>
+        </div>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
+    <script>
+       var config = {
+    apiKey: "AIzaSyBArg9ImtmlLgKEGFGSXuCErEqfx55_phQ",
+    authDomain: "smart-aquarium-87160.firebaseapp.com",
+    databaseURL: "https://smart-aquarium-87160.firebaseio.com",
+    projectId: "smart-aquarium-87160",
+    storageBucket: "smart-aquarium-87160.appspot.com",
+    messagingSenderId: "1040235722521"
+  };
+  firebase.initializeApp(config);
+
+  const logform=document.getElementById("form");
+  logform.addEventListener("submit", function (event) {
+event.preventDefault();
+const email=document.getElementById("signup-username").value
+const password=document.getElementById("signup-password").value
+console.log({email,password})
+signup(email,password)
+});
+ function signup(email,password){
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(()=>{
+     
+          window.location.href = "./login.html";
+      
+    }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage)
+    });
+   }
+
+</script>
+  </body>
+</html>
